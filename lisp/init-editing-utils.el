@@ -89,20 +89,6 @@
 
 (with-eval-after-load 'subword
   (diminish 'subword-mode))
-
-
-
-(when (fboundp 'display-line-numbers-mode)
-  (setq-default display-line-numbers-width 3)
-  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
-
-
-
-(when (boundp 'display-fill-column-indicator)
-  (setq-default indicate-buffer-boundaries 'left)
-  (setq-default display-fill-column-indicator-character ?\u254e)
-  (add-hook 'prog-mode-hook 'display-fill-column-indicator-mode))
-
 
 
 (when (require-package 'rainbow-delimiters)
@@ -165,9 +151,6 @@
 (global-set-key (kbd "C-+") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-;; Train myself to use M-f and M-b instead
-(global-unset-key [M-left])
-(global-unset-key [M-right])
 
 (defun kill-back-to-indentation ()
   "Kill from point back to the first non-whitespace character on the line."
