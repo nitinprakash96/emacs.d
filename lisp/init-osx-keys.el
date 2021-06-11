@@ -4,7 +4,9 @@
 
 (when *is-a-mac*
   (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'none)
+  ;; I like to have my left option key as meta on OSX devices
+  (setq mac-right-option-modifier 'none)
+  (setq mac-option-modifier 'meta)
   ;; Make mouse wheel / trackpad scrolling less jerky
   (setq mouse-wheel-scroll-amount '(1
                                     ((shift) . 5)
