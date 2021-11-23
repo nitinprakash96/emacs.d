@@ -24,17 +24,19 @@
              (lsp-rust-analyzer-cargo-watch-command "clippy")
              (lsp-eldoc-render-all t)
              (lsp-idle-delay 0.6)
-             (lsp-rust-analyzer-server-display-inlay-hints t)
+             (lsp-rust-analyzer-server-display-inlay-hints nil)
              :config
-             (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+             ;;(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+)
 
 (use-package lsp-ui
              :ensure
              :commands lsp-ui-mode
              :custom
-             (lsp-ui-peek-always-show t)
-             (lsp-ui-sideline-show-hover t)
-             (lsp-ui-doc-enable nil))
+             (lsp-ui-peek-always-show nil)
+             (lsp-ui-sideline-show-hover nil)
+             (lsp-ui-doc-enable nil)
+	     (lsp-ui-sideline-enable nil))
 
 (use-package rustic
              :ensure
@@ -49,9 +51,11 @@
                          ("C-c C-c s" . lsp-rust-analyzer-status))
              :config
              ;; uncomment for less flashiness
-             ;; (setq lsp-eldoc-hook nil)
-             ;; (setq lsp-enable-symbol-highlighting nil)
-             ;; (setq lsp-signature-auto-activate nil)
+             (setq lsp-eldoc-hook nil)
+             (setq lsp-enable-symbol-highlighting nil)
+             (setq lsp-signature-auto-activate nil)
+             (setq lsp-ui-sideline-show-diagnostics nil)
+             (setq lsp-ui-sideline-enable nil)
 
              ;; comment to disable rustfmt on save
              (setq rustic-format-on-save t)

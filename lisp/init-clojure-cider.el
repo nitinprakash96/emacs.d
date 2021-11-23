@@ -11,11 +11,12 @@
     (add-hook 'cider-repl-mode-hook 'subword-mode)
     (add-hook 'cider-repl-mode-hook 'paredit-mode))
 
-  (require-package 'flycheck-clojure)
-  (with-eval-after-load 'clojure-mode
-    (with-eval-after-load 'cider
-      (with-eval-after-load 'flycheck
-        (flycheck-clojure-setup)))))
+  ;; (require-package 'flycheck-clojure)
+  ;; (with-eval-after-load 'clojure-mode
+  ;;   (with-eval-after-load 'cider
+  ;;     (with-eval-after-load 'flycheck
+  ;;       (flycheck-clojure-setup))))
+  )
 
 
 (provide 'init-clojure-cider)

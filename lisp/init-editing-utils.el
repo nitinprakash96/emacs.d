@@ -19,7 +19,7 @@
  buffers-menu-max-size 30
  case-fold-search t
  column-number-mode t
- ediff-split-window-function 'split-window-horizontally
+ ediff-split-window-function 'split-window-vertically
  ediff-window-setup-function 'ediff-setup-windows-plain
  indent-tabs-mode nil
  create-lockfiles nil
