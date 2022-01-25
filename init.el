@@ -76,6 +76,7 @@
 
 (require 'init-editing-utils)
 (require 'init-whitespace)
+(require 'init-moody)
 
 (require 'init-vc)
 (require 'init-darcs)
@@ -137,7 +138,7 @@
 ;; Extra packages which don't require any configuration
 
 (require-package 'sudo-edit)
-(require-package 'gnuplot)
+;; (require-package 'gnuplot)
 ;; (require-package 'lua-mode)
 (require-package 'htmlize)
 (when *is-a-mac*

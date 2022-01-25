@@ -22,6 +22,7 @@
  ediff-split-window-function 'split-window-vertically
  ediff-window-setup-function 'ediff-setup-windows-plain
  indent-tabs-mode nil
+ tab-width 4
  create-lockfiles nil
  auto-save-default nil
  make-backup-files nil
@@ -31,7 +32,9 @@
  set-mark-command-repeat-pop t
  tooltip-delay 1.5
  truncate-lines nil
- truncate-partial-width-windows nil)
+ truncate-partial-width-windows nil
+ global-visual-line-mode 1
+ custom-safe-themes t)
 
 (add-hook 'after-init-hook 'delete-selection-mode)
 
