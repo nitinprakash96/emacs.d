@@ -102,7 +102,7 @@
   :config
   (setq lsp-haskell-server-path "haskell-language-server-wrapper")
   (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
-  (setq lsp-haskell-stylish-haskell-on t)
+  ;; (setq lsp-haskell-stylish-haskell-on t)
   (setq lsp-haskell-hlint-on t)
   (setq lsp-haskell-format-on-import-on t)
   (setq lsp-haskell-server-args ())
