@@ -38,7 +38,7 @@
 ;; Bootstrap config
 
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (locate-user-emacs-file "custom.el"))
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 ;; Calls (package-initialize)
@@ -65,6 +65,7 @@
 (require 'init-uniquify)
 (require 'init-ibuffer)
 (require 'init-flycheck)
+(require 'init-eglot)
 
 (require 'init-recentf)
 (require 'init-minibuffer)
@@ -90,8 +91,8 @@
 (require 'init-textile)
 ;; (require 'init-markdown)
 ;; (require 'init-csv)
-;;(require 'init-erlang)
-;;(require 'init-javascript)
+;; (require 'init-erlang)
+;; (require 'init-javascript)
 ;; (require 'init-php)
 ;; (require 'init-org)
 ;; (require 'init-nxml)
@@ -99,7 +100,7 @@
 (require 'init-css)
 ;; (require 'init-haml)
 ;; (require 'init-http)
-;;(require 'init-python)
+;; (require 'init-python)
 (require 'init-haskell)
 (require 'init-elm)
 ;; (require 'init-purescript)
@@ -112,10 +113,10 @@
 (require 'init-rust)
 (require 'init-toml)
 (require 'init-yaml)
-;;(require 'init-docker)
-;;(require 'init-terraform)
+;; (require 'init-docker)
+;; (require 'init-terraform)
 ;; (require 'init-nix)
-(maybe-require-package 'nginx-mode)
+;; (maybe-require-package 'nginx-mode)
 
 ;; (require 'init-paredit)
 (require 'init-lisp)
