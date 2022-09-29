@@ -34,7 +34,8 @@
  truncate-lines nil
  truncate-partial-width-windows nil
  global-visual-line-mode 1
- custom-safe-themes t)
+ custom-safe-themes t
+ visual-line-mode 1)
 
 (add-hook 'after-init-hook 'delete-selection-mode)
 

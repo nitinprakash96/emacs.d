@@ -15,9 +15,9 @@
 ;;   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 
-;; Source code helpers
+;;   ;; Source code helpers
 
-;; (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+;;   (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
 ;;   (when (maybe-require-package 'reformatter)
 ;;     (reformatter-define hindent
