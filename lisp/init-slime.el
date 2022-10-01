@@ -4,12 +4,6 @@
 
 (require-package 'slime)
 
-(when (maybe-require-package 'slime-company)
-  (setq slime-company-completion 'fuzzy
-        slime-company-after-completion 'slime-company-just-one-space)
-  (with-eval-after-load 'slime-company
-    (add-to-list 'company-backends 'company-slime)))
-
 
 ;;; Lisp buffers
 
