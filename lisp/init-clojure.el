@@ -9,8 +9,7 @@
   (require-package 'elein)
 
   (with-eval-after-load 'clojure-mode
-    (add-hook 'clojure-mode-hook 'sanityinc/lisp-setup)
-    (add-hook 'clojure-mode-hook 'subword-mode)))
+    (add-hook 'clojure-mode-hook 'sanityinc/lisp-setup)))
 
 ;; First install the package:
 (use-package flycheck-clj-kondo

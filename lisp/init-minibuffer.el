@@ -6,38 +6,35 @@
 (when (maybe-require-package 'vertico)
   (add-hook 'after-init-hook 'vertico-mode)
 
-  (require-package 'orderless)
-  (with-eval-after-load 'vertico
-    (require 'orderless))
-
-  (setq completion-styles '(basic partial-completion orderless))
-
   (when (maybe-require-package 'embark)
     (with-eval-after-load 'vertico
       (define-key vertico-map (kbd "C-c C-o") 'embark-export)
       (define-key vertico-map (kbd "C-c C-c") 'embark-act)))
 
   (when (maybe-require-package 'consult)
-    (when (maybe-require-package 'projectile)
-      (setq-default consult-project-root-function 'projectile-project-root))
+    (defmacro sanityinc/no-consult-preview (&rest cmds)
+      `(with-eval-after-load 'consult
+         (consult-customize ,@cmds :preview-key "M-P")))
 
-    (when (executable-find "rg")
-      (maybe-require-package 'affe)
-      (defun sanityinc/affe-grep-at-point (&optional dir initial)
+    (sanityinc/no-consult-preview
+     consult-ripgrep
+     consult-git-grep consult-grep
+     consult-bookmark consult-recent-file consult-xref
+     consult--source-recent-file consult--source-project-recent-file consult--source-bookmark)
+
+    (when (and (executable-find "rg"))
+      (defun sanityinc/consult-ripgrep-at-point (&optional dir initial)
         (interactive (list prefix-arg (when-let ((s (symbol-at-point)))
                                         (symbol-name s))))
-        (affe-grep dir initial))
-      (global-set-key (kbd "M-?") 'sanityinc/affe-grep-at-point))
+        (consult-ripgrep dir initial))
+      (global-set-key (kbd "M-?") 'sanityinc/consult-ripgrep-at-point))
 
     (global-set-key [remap switch-to-buffer] 'consult-buffer)
     (global-set-key [remap switch-to-buffer-other-window] 'consult-buffer-other-window)
     (global-set-key [remap switch-to-buffer-other-frame] 'consult-buffer-other-frame)
     (global-set-key [remap goto-line] 'consult-goto-line)
 
-    (with-eval-after-load 'consult
-      (dolist (cmd '(consult-ripgrep affe-grep sanityinc/affe-grep-at-point))
-        (add-to-list 'consult-config
-                     `(,cmd :preview-key ,(kbd "M-P")))))
+
 
     (when (maybe-require-package 'embark-consult)
       (with-eval-after-load 'embark

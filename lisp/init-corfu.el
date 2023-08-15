@@ -6,22 +6,25 @@
 ;; TODO Default sort order should place [a-z] before punctuation
 
 (setq tab-always-indent 'complete)
-(require-package 'orderless)
-(with-eval-after-load 'vertico
-  (require 'orderless))
-(setq completion-styles '(orderless basic)
-      completion-category-defaults nil
+(when (maybe-require-package 'orderless)
+  (with-eval-after-load 'vertico
+    (require 'orderless)
+    (setq completion-styles '(orderless basic))))
+(setq completion-category-defaults nil
       completion-category-overrides nil)
 (setq completion-cycle-threshold 4)
 
 (when (maybe-require-package 'corfu)
   (setq-default corfu-auto t)
+  (with-eval-after-load 'eshell
+    (add-hook 'eshell-mode-hook (lambda () (setq-local corfu-auto nil))))
   (setq-default corfu-quit-no-match 'separator)
   (add-hook 'after-init-hook 'global-corfu-mode)
 
-  (when (maybe-require-package 'corfu-doc)
-    (with-eval-after-load 'corfu
-      (add-hook 'corfu-mode-hook #'corfu-doc-mode)))
+
+
+  (with-eval-after-load 'corfu
+    (corfu-popupinfo-mode))
 
   ;; TODO: https://github.com/jdtsmith/kind-icon
   )
