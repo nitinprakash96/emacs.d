@@ -113,6 +113,7 @@
 (require 'init-rust)
 (require 'init-toml)
 (require 'init-yaml)
+(require 'init-zig)
 ;; (require 'init-docker)
 ;; (require 'init-terraform)
 ;; (require 'init-nix)
